@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: matthew-backend
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 8000
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: SOLANA_RPC
+        value: https://api.devnet.solana.com
+      - key: SOLANA_KEYPAIR_BASE58
+        sync: false
+    healthCheckPath: /
